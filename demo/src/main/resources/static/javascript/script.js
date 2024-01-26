@@ -57,6 +57,7 @@ arr[0].sayHello()
 
 let operate = function () {
     console.log("Hello")
+    console.log(evt)
 }
 
 // operate()  // call function
@@ -73,4 +74,8 @@ let operate = function () {
 var num1 = document.querySelector("#num1").value
 var num2 = document.querySelector("#num2").value
 
+// Use querySelector to grab stuff.
+
 document.querySelector("form").addEventListener("submit", operate)
+
+// querySelector("form") grabs the <form class="par"> thing.
