@@ -47,7 +47,7 @@ let obj2 = {
 
 arr = [obj, obj2]
 
-arr[0].sayHello()
+// arr[0].sayHello()
 
 // function
 
@@ -55,8 +55,24 @@ arr[0].sayHello()
 //     console.log("Hello")
 // }
 
-let operate = function () {
-    console.log("Hello")
+let operate = function (evt) {
+    evt.preventDefault()
+    // console.log(evt)
+    let A = document.querySelector("#num1").value
+    let B = document.querySelector("#num2").value
+    var op = document.querySelector("#op").selectedIndex
+    let C = 0
+    if (op == 0) {
+        C = parseInt(A) + parseInt(B)
+    } else if (op == 1) {
+        // ....
+    } else {
+        // error
+        document.querySelector("#error-message").computedStyleMap.display = "block"
+    }
+    
+    document.querySelector("#result").innerHTML = C
+
 }
 
 // operate()  // call function
@@ -66,11 +82,14 @@ let operate = function () {
 // let a = document.querySelector("h1")
 // a.innerHTML = "Hello"
 
-
-
 // perform math operation
+function clicked(evt){
+    console.log(evt.clientX, evt.clientY)
+}
 
 var num1 = document.querySelector("#num1").value
 var num2 = document.querySelector("#num2").value
 
 document.querySelector("form").addEventListener("submit", operate)
+
+document.querySelector("#num1").addEventListener("click", clicked)
