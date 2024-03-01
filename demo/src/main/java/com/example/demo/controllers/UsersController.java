@@ -10,7 +10,7 @@ import com.example.demo.models.UserRepository;
 import com.example.demo.models.Users;
 
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
