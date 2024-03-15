@@ -38,8 +38,8 @@ public class UsersController {
     public String getAllUsers(Model model) {
         System.out.println("Hello from all users");
         List<Users> users = usersRepository.findAll(); // db
-        model.addAttribute("users", users);
-        return "users/all";
+        model.addAttribute("usrs", users);
+        return "users/showAll";
     }
     
     @GetMapping("/login")
