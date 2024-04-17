@@ -1,10 +1,9 @@
 package com.example.demo.controllers;
 
-import java.util.*;
-
-import org.springframework.web.bind.annotation.RestController;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PuppyController {
@@ -12,26 +11,33 @@ public class PuppyController {
         private String name;
         private String breed;
         private String color;
+
         public Puppy(String name, String breed, String color) {
             this.name = name;
             this.breed = breed;
             this.color = color;
         }
+
         public String getName() {
             return name;
         }
+
         public void setName(String name) {
             this.name = name;
         }
+
         public String getBreed() {
             return breed;
         }
+
         public void setBreed(String breed) {
             this.breed = breed;
         }
+
         public String getColor() {
             return color;
         }
+
         public void setColor(String color) {
             this.color = color;
         }
@@ -48,9 +54,9 @@ public class PuppyController {
         puppies.add(p3);
     }
 
-    @GetMapping("/puppies")   
+    @GetMapping("/puppies")
     public List<Puppy> getAllPuppies() {
         return puppies;
     }
-        
+
 }

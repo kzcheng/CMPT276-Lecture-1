@@ -1,30 +1,28 @@
 package com.example.demo.controllers;
 
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.mockito.Mockito.when;
+import java.util.ArrayList;
+import java.util.List;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
 import com.example.demo.models.UserRepository;
 import com.example.demo.models.Users;
-import static org.mockito.Mockito.when;
-import org.hamcrest.Matchers;
-
-import static org.hamcrest.Matchers.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @WebMvcTest(UsersController.class)
 public class UsersControllerTest {
-    
+
     @MockBean
     private UserRepository userRepository;
-    
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -50,16 +48,14 @@ public class UsersControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/users/all"))
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.view().name("users/showAll"))
-            
+
             .andExpect(MockMvcResultMatchers.model().attribute("usrs", hasItem(
                 allOf(
                     hasProperty("name", Matchers.is("bobby")),
                     hasProperty("password", Matchers.is("1234")),
-                    hasProperty("age", Matchers.is(42))
-                )
-            )));
+                    hasProperty("age", Matchers.is(42))))));
     }
-    
+
     // @Test
     // void testGetLogin() throws Exception {
     //     mockMvc.perform(MockMvcRequestBuilders.get("/login"))
